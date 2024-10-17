@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "tutorialmod",
+	"version": "${version}",
+	"name": "Tutorial Mod",
+	"description": "The first fabric mod by maybMedia, guided by KaupenJoe on YouTube!",
+	"authors": [
+		"maybMedia"
+	],
+	"contact": {
+		"homepage": "https://twitch.tv/mayb_streams/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/tutorialmod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.mayb.tutorialmod.TutorialMod"
+		],
+		"fabric-datagen": [
+			"com.mayb.tutorialmod.TutorialModDataGenerator"
+		],
+		"client": [
+			"com.mayb.tutorialmod.TutorialModClient"
+		]
+	},
+	"mixins": [
+		"tutorialmod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.7",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

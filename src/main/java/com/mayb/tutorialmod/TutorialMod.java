@@ -6,7 +6,6 @@ import com.mayb.tutorialmod.item.ModItemGroups;
 import com.mayb.tutorialmod.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.registry.FuelRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +18,7 @@ public class TutorialMod implements ModInitializer {
 	public void onInitialize() {
 		ModItemGroups.registerItemGroups();
 
-		ModFuels.RegisterModFuels();
+		ModFuels.registerModFuels();
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();

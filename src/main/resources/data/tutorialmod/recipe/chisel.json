@@ -1,18 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "equipment",
   "key": {
-    "#": {
+    "o": {
       "item": "tutorialmod:pink_garnet"
+    },
+    "/": {
+      "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "###",
-    "###",
-    "###"
+    "  o",
+    " / ",
+    "/  "
   ],
   "result": {
     "count": 1,
-    "id": "tutorialmod:pink_garnet_block"
+    "id": "tutorialmod:chisel"
   }
 }

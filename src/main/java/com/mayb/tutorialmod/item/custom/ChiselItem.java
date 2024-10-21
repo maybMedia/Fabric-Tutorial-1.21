@@ -3,16 +3,21 @@ package com.mayb.tutorialmod.item.custom;
 import com.mayb.tutorialmod.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.Map;
 
 // The ChiselItem class extends the base Minecraft Item class
@@ -26,8 +31,13 @@ public class ChiselItem extends Item {
             Map.of(
                     Blocks.STONE, Blocks.STONE_BRICKS,               // Chisel STONE into STONE_BRICKS
                     Blocks.END_STONE, Blocks.END_STONE_BRICKS,       // Chisel END_STONE into END_STONE_BRICKS
-                    Blocks.OAK_LOG, ModBlocks.PINK_GARNET_BLOCK,     // Chisel OAK_LOG into a custom block (PINK_GARNET_BLOCK)
-                    Blocks.GOLD_BLOCK, Blocks.NETHERITE_BLOCK        // Chisel GOLD_BLOCK into NETHERITE_BLOCK
+                    Blocks.NETHERRACK, Blocks.NETHER_BRICKS,
+                    Blocks.PRISMARINE, Blocks.PRISMARINE_BRICKS,
+                    Blocks.QUARTZ_BLOCK, Blocks.QUARTZ_BRICKS,
+                    Blocks.POLISHED_BLACKSTONE, Blocks.POLISHED_BLACKSTONE_BRICKS,
+                    Blocks.DEEPSLATE, Blocks.DEEPSLATE_BRICKS,
+                    Blocks.PACKED_MUD, Blocks.MUD_BRICKS,
+                    Blocks.TUFF, Blocks.TUFF_BRICKS
             );
 
     // Constructor for the ChiselItem
@@ -69,5 +79,17 @@ public class ChiselItem extends Item {
 
         // Return SUCCESS to indicate the action was completed successfully
         return ActionResult.SUCCESS;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.tutorialmod.chisel.shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.tutorialmod.chisel.tooltip"));
+        }
+
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }
